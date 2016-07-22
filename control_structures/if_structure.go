@@ -1,19 +1,18 @@
 package control_structures
-import (
-    "strconv"
-    "fmt"
-)
+
+import "fmt"
+
 func fizzBuzz(i int32) string {
-	var result = i;
+	var result string = "";
 	
-	if i%3 == 0 {
-		result = Fizz
+	if (i%3 == 0 && i%5 == 0) {
+		result = "FizzBuzz"
 	}else if i%5 == 0 {
-		result = Buzz 
-	}else if (i%3 == 0 && i%5 == 0) {
-		result = FizzBuzz 
+		result = "Buzz" 
+	}else if i%3 == 0 {
+		result = "Fizz" 
 	} else {
-		result = strconv.Itoa(i)//fmt.Sprintf("%d", i)
+		result = fmt.Sprintf("%d", i)
 	}
 
 	return result
