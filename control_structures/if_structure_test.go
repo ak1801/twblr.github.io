@@ -13,7 +13,7 @@ var fizzBuzzTests = []struct {
 	{999, "Fizz"},
 }
 
-func TestFizzBuzz(t *testing.T) {
+func TestFizzBuzz(t *testing.T) {		//testing.T is a variable
 	for _, fb := range fizzBuzzTests {
 		actualOutput := fizzBuzz(fb.input)
 		if fb.output != actualOutput {
