@@ -4,22 +4,41 @@ type mapOperation func(int32) int32
 type filterOperation func(int32) bool
 
 func mapInts(op mapOperation, vals []int32) []int32 {
-	return []int32{}
-
+	result := []int32{}
+	for _,elem := range vals {
+		result = append(result, op(elem))
+	}
+	return result
 }
 
 func filterInts(op filterOperation, vals []int32) []int32 {
-	return []int32{3}
+	result := []int32{}
+	for _,elem := range vals {
+		if op(elem) {
+			result = append(result, elem)
+		}
+	}
+	return result
 }
 
 func concatenate(dest []string, newValues ...string) []string {
-	return nil
+	dest = append(dest, newValues...)
+	return dest
 }
 
 func equals(list1 []string, list2 []string) bool {
-	return false
+	for i := 0; i < len(list2); i++ {
+		if list1[i]!=list2[i] {
+			return false
+		}
+	}
+	return true
 }
 
 func partialReverse(src []int, from, to int) []int {
-	return nil
+	reversedList := []int{}
+	for i:=to; i >= from; i--	{
+		reversedList = append(reversedList, src[i])
+	}
+	return reversedList
 }
